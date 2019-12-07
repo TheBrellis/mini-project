@@ -22,7 +22,7 @@
                 <a href="/tables"><button class="btn btn-lg btn-primary"><span class="fa fa-list-alt"></span> View
                         Tables</button></a>
                 <a href="/reserve"><button class="btn btn-lg btn-secondary"><span
-                    class="fa fa-home"></span></button></a>
+                            class="fa fa-home"></span></button></a>
             </div>
         </div>
         <div class="row">
@@ -50,17 +50,12 @@
                                 <input type="text" class="form-control" id="user-id">
                             </div>
 
-                            <button type="submit" class="btn btn-primary">Submit</button>
+                            <button type="submit" class="btn btn-primary" id="submit-btn">Submit</button>
                         </form>
                     </div>
-
                 </div>
-
             </div>
-
-
         </div>
-
     </div>
     <footer class="footer">
         <div class="container">
@@ -68,8 +63,25 @@
         </div>
     </footer>
 
-    <script src="https://code.jquery.com/jquery.js"></script> 
-     
+    <script src="https://code.jquery.com/jquery.js"></script>
+    <script type="text/javascript">
+        let newUser = {};
+        $("#submit-btn").on("click", function () {
+            event.preventDefault();
+            newUser.name = $("#user-name").val();
+            newUser.phone = $("#user-phone").val();
+            newUser.email = $("#user-email").val();
+            newUser.id = $("#user-id").val();
+
+
+            $.post("/api/tables", newUser)
+                .then(function (data) {
+                    console.log("add.html", data);
+                    alert("Resi has done been did");
+                });
+        });
+
+    </script>
 </body>
 
 </html>
