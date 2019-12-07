@@ -1,0 +1,24 @@
+{
+  "name": "mini-project",
+  "version": "1.0.0",
+  "description": "Local host server for making and maintaining reserved table assignments and a wait list # HotRestaurant",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TheBrellis/mini-project.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/TheBrellis/mini-project/issues"
+  },
+  "homepage": "https://github.com/TheBrellis/mini-project#readme",
+  "dependencies": {
+    "axios": "^0.19.0",
+    "express": "^4.17.1"
+  }
+}
