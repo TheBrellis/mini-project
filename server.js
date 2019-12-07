@@ -18,17 +18,17 @@ app.use(express.json());
 
 // route to home page
 app.get("/", function(req, res) {
-    res.sendFile(path.join(__dirname, "home.html"));
+    res.sendFile(path.join(__dirname,"public","home.html"));
   });
 
 //   route to make a resi
 app.get("/reserve", function(req, res) {
-    res.sendFile(path.join(__dirname, "make.html"));
+    res.sendFile(path.join(__dirname,"public", "make.html"));
   });
 
 //   route to view tables reserved
 app.get("/tables", function(req, res) {
-    res.sendFile(path.join(__dirname, "view.html"));
+    res.sendFile(path.join(__dirname,"public", "view.html"));
   });
 
 //   route to view json of table resi
@@ -50,22 +50,15 @@ const waitList = [];
 app.post("/api/tables", function(req, res) {
     // req.body hosts is equal to the JSON post sent from the user
   // This works because of our body parsing middleware
-    var newTable = req.body
-
-    tables.push(newTable)
-
+    
+  if (tables.length < 5) {
+    tables.push(req.body)
+  } else {
+    waitList.push(req.body);
+    retur
+  }
+    
 })
-
-app.post("/api/tables", function(req, res) {
-    // req.body hosts is equal to the JSON post sent from the user
-  // This works because of our body parsing middleware
-    var newWait = req.body
-
-    tables.push(newWait)
-
-})
-
-
 
 // Starts the server to begin listening
 // =============================================================
